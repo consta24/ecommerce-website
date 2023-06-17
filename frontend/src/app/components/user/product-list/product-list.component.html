@@ -1,0 +1,28 @@
+<div class="container">
+  <h1 class="mb-4">Product List</h1>
+  <div class="row" *ngFor="let product of productList">
+    <div class="col-12">
+      <div class="card mb-4">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-8">
+              <h5 class="card-title">{{ product.name }}</h5>
+              <p class="card-text">{{ product.description }}</p>
+            </div>
+            <div class="col-md-4 d-flex align-items-center justify-content-end">
+              <button class="btn btn-info mr-2" (click)="addToCart(product)">
+                Add to cart
+              </button>
+              <button
+                class="btn btn-secondary"
+                (click)="viewProductDetails(product.skuCode)"
+              >
+                View more details
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

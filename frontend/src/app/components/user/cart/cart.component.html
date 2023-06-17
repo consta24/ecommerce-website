@@ -1,0 +1,39 @@
+<div class="container">
+  <h1>Your Cart</h1>
+  <div class="card mb-3" *ngFor="let cartItem of cartItems">
+    <div class="row no-gutters">
+      <div class="col-md-6">
+        <div class="card-body">
+          <h5 class="card-title">{{ cartItem.product.name }}</h5>
+          <p class="card-text">{{ cartItem.product.description }}</p>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="card-body">
+          <div class="form-group">
+            <label for="quantity">Quantity:</label>
+            <input
+              type="number"
+              class="form-control"
+              id="quantity"
+              [(ngModel)]="cartItem.quantity"
+              min="1"
+              readonly
+            />
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 d-flex align-items-center justify-content-end pr-4">
+        <button
+          class="btn btn-danger"
+          (click)="removeFromCart(cartItem.product.skuCode)"
+        >
+          Remove
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-end">
+    <button class="btn btn-info" (click)="placeOrder()">Buy Now</button>
+  </div>
+</div>

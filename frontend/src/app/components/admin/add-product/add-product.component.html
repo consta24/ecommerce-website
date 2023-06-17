@@ -1,0 +1,61 @@
+<div class="container">
+  <form (ngSubmit)="addProduct()" #productForm="ngForm">
+    <div class="mb-3">
+      <label for="productName" class="form-label">Product Name</label>
+      <input
+        [(ngModel)]="product.name"
+        name="productName"
+        type="text"
+        class="form-control"
+        id="productName"
+        placeholder="Enter product name"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="productDescription" class="form-label"
+        >Product Description</label
+      >
+      <textarea
+        [(ngModel)]="product.description"
+        name="productDescription"
+        class="form-control"
+        id="productDescription"
+        rows="3"
+        placeholder="Enter product description"
+        required
+      ></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="productPrice" class="form-label">Product Price</label>
+      <input
+        [(ngModel)]="product.price"
+        name="productPrice"
+        type="number"
+        class="form-control"
+        id="productPrice"
+        placeholder="Enter product price"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="skuCode" class="form-label">SKU Code</label>
+      <input
+        [(ngModel)]="product.skuCode"
+        name="skuCode"
+        type="text"
+        class="form-control"
+        id="skuCode"
+        placeholder="Enter SKU code"
+        required
+      />
+    </div>
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="!productForm.form.valid"
+    >
+      Submit
+    </button>
+  </form>
+</div>

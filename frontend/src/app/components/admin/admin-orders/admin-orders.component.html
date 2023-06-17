@@ -1,0 +1,32 @@
+<div class="container mt-5" *ngIf="orders.length > 0; else noOrders">
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th>Order Number</th>
+        <th>Date</th>
+        <th>Username</th>
+        <th>Order Items</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders">
+        <td>{{ order.orderNumber }}</td>
+        <td>{{ order.date }}</td>
+        <td>{{ order.username }}</td>
+        <td>
+          <ul>
+            <li *ngFor="let item of order.orderItems">
+              {{ item.product.skuCode }} - {{ item.quantity }}
+            </li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #noOrders>
+  <div class="container mt-5">
+    <p class="alert alert-warning">No orders found.</p>
+  </div>
+</ng-template>

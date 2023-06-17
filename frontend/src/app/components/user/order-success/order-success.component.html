@@ -1,0 +1,36 @@
+<div class="container mt-5">
+  <h3 class="text-center">Order Placed Successfully</h3>
+  <div class="card mt-3">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-sm-3">
+          <strong>Order Number:</strong>
+        </div>
+        <div class="col-sm-9">
+          {{ order.orderNumber }}
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-sm-3">
+          <strong>Placed On:</strong>
+        </div>
+        <div class="col-sm-9">
+          {{ order.date }}
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-sm-3">
+          <strong>Items:</strong>
+        </div>
+        <div class="col-sm-9">
+          <ul class="list-group">
+            <li class="list-group-item" *ngFor="let item of order.orderItems">
+              <strong>Product:</strong> {{ item.product.name }}
+              <strong>Quantity:</strong> {{ item.quantity }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

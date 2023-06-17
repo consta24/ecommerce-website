@@ -1,0 +1,40 @@
+<div class="container">
+  <h1 class="text-center my-4">Admin Panel</h1>
+  <div class="d-flex justify-content-center mb-4">
+    <button class="btn btn-success mx-2" (click)="showComponent('add-product')">
+      Add Product
+    </button>
+    <button
+      class="btn btn-success mx-2"
+      (click)="showComponent('admin-product-list')"
+    >
+      Product List
+    </button>
+    <button class="btn btn-success mx-2" (click)="showComponent('inventory')">
+      Inventory
+    </button>
+    <button
+      class="btn btn-success mx-2"
+      (click)="showComponent('admin-orders')"
+    >
+      Orders
+    </button>
+    <button class="btn btn-success mx-2" (click)="showComponent('users')">
+      Users
+    </button>
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <app-add-product
+      *ngIf="displayComponent === 'add-product'"
+    ></app-add-product>
+    <app-admin-product-list
+      *ngIf="displayComponent === 'admin-product-list'"
+    ></app-admin-product-list>
+    <app-inventory *ngIf="displayComponent === 'inventory'"></app-inventory>
+    <app-admin-orders
+      *ngIf="displayComponent === 'admin-orders'"
+    ></app-admin-orders>
+    <app-users *ngIf="displayComponent === 'users'"></app-users>
+  </div>
+</div>

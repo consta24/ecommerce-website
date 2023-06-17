@@ -1,0 +1,28 @@
+<div class="container">
+  <h1 class="text-center my-4">Inventory List</h1>
+  <div class="list-group">
+    <div class="list-group-item" *ngFor="let inventory of inventoryList">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">{{ inventory.skuCode }}</h5>
+        <form
+          class="form-inline"
+          (ngSubmit)="editQuantity(inventory.skuCode, inventory.quantity)"
+        >
+          <div class="form-group mx-sm-3 mb-2">
+            <input
+              type="number"
+              class="form-control"
+              #quantity
+              [(ngModel)]="inventory.quantity"
+              name="quantity"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-primary mb-2">
+            Edit Quantity
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
